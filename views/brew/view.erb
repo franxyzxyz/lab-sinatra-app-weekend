@@ -1,0 +1,48 @@
+<h1>Brew #<%= @brew.id %></h1>
+<ul class="list-inline list-unstyled">
+  <li>
+    <a href="/brew/edit/<%= @brew.id %>" class="btn btn-success">Edit</a>
+  </li>
+  <li>
+    <form action="/brew/delete/<%= @brew.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </li>
+</ul>
+
+<table class="table table-hover">
+  <tr>
+    <td class="col-md-2"><strong>Date Created</strong></td>
+    <td class="col-md-10"><%= @brew.created_at %></td>
+  </tr>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><%= @brew.beanName %></td>
+  </tr>
+  <tr>
+    <td><strong>Roastery Name</strong></td>
+    <td><%= @brew.beanSource %></td>
+  </tr>
+  <tr>
+    <td><strong>Bean Weight</strong></td>
+    <td><%= @brew.beanweight %></td>
+  </tr>
+  <tr>
+    <td><strong>Brew Method</strong></td>
+    <td><%= @brew.method %></td>
+  </tr>
+  <tr>
+    <td><strong>Bloom Time</strong></td>
+    <td><%= @brew.bloomTime %></td>
+  </tr>
+  <tr>
+    <td><strong>Rating</strong></td>
+    <td><%= @brew.rating %></td>
+  </tr>
+  <tr>
+    <td><strong>Weight</strong></td>
+    <td><%= @brew.weight %></td>
+  </tr>
+
+</table>

@@ -1,0 +1,67 @@
+<h1>Edit Brew #<%= @brew.id%></h1>
+<p>Last Updated: <%= @brew.updated_at%></p>
+
+<div class="container">
+  <form class="form-horizontal" action="/brew/edit/<%= @brew.id%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+      <label for="brew_datetime" class="control-label col-md-2">Brew created</label>
+      <div class="col-md-10">
+        <p class="form-control-static"><%= @brew.created_at%></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bean_name" class="control-label col-md-2">Bean Name</label>
+      <div class="col-md-10">
+        <input type="text" id="bean_name" name="brew[beanName]" value="<%= @brew.beanName%>" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bean_source" class="control-label col-md-2">Roastery Name</label>
+      <div class="col-md-10">
+        <input type="text" id="bean_source" name="brew[beanSource]" value="<%= @brew.beanSource %>" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bean_weight" class="control-label col-md-2">Bean Weight /grams</label>
+      <div class="col-md-10">
+        <input type="decimal" id="bean_weight" name="brew[beanweight]" value="<%= @brew.beanweight%>" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="brew_method" class="control-label col-md-2">Brew Method</label>
+      <div class="col-md-1">
+        <p class="form-control-static"><%= @brew.method%></p>
+      </div>
+      <div class="col-md-9">
+        <select class="form-control" id="brew_method" name="brew[method]">
+          <option>Pour-Over</option>
+          <option>French Press</option>
+          <option>Chemex</option>
+          <option>Aeropress</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="bloom_time" class="control-label col-md-2">Bloom Time</label>
+      <div class="col-md-10">
+        <input type="decimal" id="bloom_time" name="brew[bloomTime]" value="<%= @brew.bloomTime%>" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="brew_rating" class="control-label col-md-2">Rating</label>
+      <div class="col-md-10">
+        <input type="decimal" id="brew_rating" name="brew[rating]" value="<%= @brew.rating%>" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="brew_weight" class="control-label col-md-2">Weight</label>
+      <div class="col-md-10">
+        <input type="decimal" id="brew_weight" name="brew[weight]" value="<%= @brew.weight%>" class="form-control">
+      </div>
+    </div>
+      <button type="submit" class="btn btn-success form-control">UPDATE</button>
+    </div>
+  </form>
+</div>

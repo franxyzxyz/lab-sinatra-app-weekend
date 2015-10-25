@@ -1,0 +1,39 @@
+<h1>All the brews...</h1>
+
+
+
+<div class="table-responsive">
+  <table class="table table-hover brew_list center-block">
+    <thead>
+      <tr>
+        <th>ID <br/> <a href="/brew/?sort=id">Sort by ID</a></th>
+        <th>Bean Name <br/> <a href="/brew/?sort=name">Sort A-Z</a> </th>
+        <th>Brew Rating <br/><a href="/brew/?sort=rating">Highest on top</a></th>
+        <th></th>
+        <th>Created at <br/><a href="/brew/?sort=createAt">Latest on top</a></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @brews.each do |brew| %>
+      <tr>
+        <td class="col-md-1 col-lg-1"><%= brew.id%></td>
+        <td class="col-md-3 col-lg-2"><%= brew.beanName%></td>
+        <td class="col-md-1 col-lg-1"><%= brew.rating%> / 5</td>
+        <td class="col-md-3 col-lg-2" ><a href="/brew/<%= brew.id %>" class="btn btn-default">MORE DETAILS</a></td>
+        <td class="col-md-2 col-lg-2"><%= brew.created_at%></td>
+        <td class="col-md-0.5 col-lg-1">
+          <a href="/brew/edit/<%= brew.id %>" role="button" class="btn btn-success">Edit</a>
+        </td>
+        <td class="col-md-0.5 col-lg-1">
+          <form action="/brew/delete/<%= brew.id %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
